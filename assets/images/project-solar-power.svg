@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" width="100%" height="100%">
+  <defs>
+    <linearGradient id="solarBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064E3B" />
+      <stop offset="50%" stop-color="#065F46" />
+      <stop offset="100%" stop-color="#022C22" />
+    </linearGradient>
+    <linearGradient id="sunGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE047" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+    <linearGradient id="panelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E3A8A" />
+      <stop offset="100%" stop-color="#172554" />
+    </linearGradient>
+  </defs>
+
+  <rect width="500" height="320" fill="url(#solarBg)" />
+
+  <!-- Radiating Sun -->
+  <g transform="translate(90, 70)">
+    <circle cx="0" cy="0" r="32" fill="url(#sunGrad)" opacity="0.95" />
+    <!-- Sun rays -->
+    <g stroke="#FDE047" stroke-width="2.5" stroke-linecap="round" opacity="0.8">
+      <line x1="0" y1="-42" x2="0" y2="-52" />
+      <line x1="0" y1="42" x2="0" y2="52" />
+      <line x1="-42" y1="0" x2="-52" y2="0" />
+      <line x1="42" y1="0" x2="52" y2="0" />
+      <line x1="-30" y1="-30" x2="-38" y2="-38" />
+      <line x1="30" y1="30" x2="38" y2="38" />
+      <line x1="-30" y1="30" x2="-38" y2="38" />
+      <line x1="30" y1="-30" x2="38" y2="-38" />
+    </g>
+  </g>
+
+  <!-- Photovoltaic Solar Array (Angled) -->
+  <g transform="translate(190, 110)">
+    <!-- Stand -->
+    <polygon points="40,90 50,150 70,150 60,90" fill="#94A3B8" />
+    <polygon points="120,90 130,150 150,150 140,90" fill="#64748B" />
+
+    <!-- Solar Panel Surface (Isometric projection) -->
+    <polygon points="20,20 180,0 200,90 40,110" fill="url(#panelGrad)" stroke="#38BDF8" stroke-width="2" />
+    
+    <!-- Grid Cells on Solar Panel -->
+    <line x1="60" y1="15" x2="80" y2="105" stroke="#60A5FA" stroke-width="1.2" opacity="0.8" />
+    <line x1="100" y1="10" x2="120" y2="100" stroke="#60A5FA" stroke-width="1.2" opacity="0.8" />
+    <line x1="140" y1="5" x2="160" y2="95" stroke="#60A5FA" stroke-width="1.2" opacity="0.8" />
+    
+    <line x1="25" y1="42" x2="185" y2="22" stroke="#60A5FA" stroke-width="1.2" opacity="0.8" />
+    <line x1="30" y1="65" x2="190" y2="45" stroke="#60A5FA" stroke-width="1.2" opacity="0.8" />
+    <line x1="35" y1="88" x2="195" y2="68" stroke="#60A5FA" stroke-width="1.2" opacity="0.8" />
+  </g>
+
+  <!-- Energy Power Transmission Lines -->
+  <path d="M 280 220 Q 320 220 330 250" fill="none" stroke="#FDE047" stroke-width="2.5" stroke-dasharray="4 3" />
+  <circle cx="280" cy="220" r="4" fill="#F59E0B" />
+
+  <!-- Charge Controller & Battery Storage Hub -->
+  <g transform="translate(60, 195)">
+    <rect x="0" y="0" width="85" height="90" rx="8" fill="#1E293B" stroke="#10B981" stroke-width="1.5" />
+    <text x="42" y="24" font-family="-apple-system, sans-serif" font-size="8.5" font-weight="700" fill="#E2E8F0" text-anchor="middle">SMART INVERTER</text>
+    <!-- Battery Bar -->
+    <rect x="18" y="35" width="48" height="20" rx="3" fill="#0F172A" stroke="#475569" stroke-width="1" />
+    <rect x="21" y="38" width="36" height="14" rx="2" fill="#10B981" />
+    <rect x="66" y="41" width="4" height="8" rx="1" fill="#475569" />
+    <text x="42" y="75" font-family="monospace" font-size="9" fill="#10B981" text-anchor="middle">98% STORED</text>
+  </g>
+
+  <!-- Community Micro-Grid (Houses & Streetlights) -->
+  <!-- House 1 -->
+  <g transform="translate(340, 190)">
+    <polygon points="35,0 0,30 70,30" fill="#F97316" />
+    <rect x="10" y="30" width="50" height="45" fill="#F1F5F9" />
+    <rect x="28" y="45" width="14" height="30" fill="#475569" />
+    <rect x="45" y="38" width="12" height="12" fill="#FDE047" stroke="#F59E0B" stroke-width="0.8" />
+  </g>
+
+  <!-- House 2 -->
+  <g transform="translate(415, 205)">
+    <polygon points="30,0 0,25 60,25" fill="#3B82F6" />
+    <rect x="8" y="25" width="44" height="40" fill="#E2E8F0" />
+    <rect x="22" y="40" width="12" height="25" fill="#1E293B" />
+    <rect x="14" y="32" width="10" height="10" fill="#FDE047" stroke="#F59E0B" stroke-width="0.8" />
+  </g>
+
+  <!-- Community Power Flow Line -->
+  <path d="M 145 240 L 340 240" fill="none" stroke="#FDE047" stroke-width="2" stroke-dasharray="3 3" />
+
+  <!-- Info badge -->
+  <g transform="translate(310, 45)">
+    <rect x="0" y="0" width="155" height="52" rx="8" fill="#064E3B" stroke="#10B981" stroke-width="1.2" opacity="0.9" />
+    <text x="12" y="20" font-family="-apple-system, sans-serif" font-size="9" font-weight="600" fill="#A7F3D0">COMMUNITY ENERGY</text>
+    <text x="12" y="38" font-family="monospace" font-size="11" fill="#FDE047">Grid Yield: +3.2 kW</text>
+  </g>
+</svg>

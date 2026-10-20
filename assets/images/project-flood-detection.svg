@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" width="100%" height="100%">
+  <defs>
+    <linearGradient id="floodBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+    <linearGradient id="waterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0284C7" stop-opacity="0.95" />
+    </linearGradient>
+    <linearGradient id="beamGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.0" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="320" fill="url(#floodBg)" />
+
+  <!-- Grid lines -->
+  <g stroke="#334155" stroke-width="0.8" opacity="0.3">
+    <line x1="0" y1="60" x2="500" y2="60" />
+    <line x1="0" y1="120" x2="500" y2="120" />
+    <line x1="0" y1="180" x2="500" y2="180" />
+    <line x1="0" y1="240" x2="500" y2="240" />
+    <line x1="100" y1="0" x2="100" y2="320" />
+    <line x1="200" y1="0" x2="200" y2="320" />
+    <line x1="300" y1="0" x2="300" y2="320" />
+    <line x1="400" y1="0" x2="400" y2="320" />
+  </g>
+
+  <!-- Monitoring Station Post & Sensor Mount -->
+  <rect x="235" y="30" width="30" height="120" rx="4" fill="#475569" stroke="#64748B" stroke-width="1.5" />
+  
+  <!-- LoRa Antenna -->
+  <line x1="250" y1="30" x2="250" y2="5" stroke="#94A3B8" stroke-width="3" stroke-linecap="round" />
+  <circle cx="250" cy="5" r="3" fill="#EF4444" filter="url(#glow)" />
+  
+  <!-- LoRa waves -->
+  <path d="M 235 15 A 18 18 0 0 1 265 15" fill="none" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="3 3" />
+  <path d="M 225 10 A 28 28 0 0 1 275 10" fill="none" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.6" />
+
+  <!-- ESP32 Enclosure Box -->
+  <rect x="220" y="55" width="60" height="50" rx="8" fill="#1E293B" stroke="#38BDF8" stroke-width="1.5" />
+  <circle cx="235" cy="70" r="3" fill="#10B981" />
+  <text x="245" y="73" font-family="monospace" font-size="8" fill="#94A3B8">ESP32</text>
+  <circle cx="235" cy="85" r="3" fill="#38BDF8" />
+  <text x="245" y="88" font-family="monospace" font-size="8" fill="#94A3B8">LoRa</text>
+
+  <!-- Ultrasonic Sensor (HC-SR04 style transducers) -->
+  <g transform="translate(225, 140)">
+    <rect x="0" y="0" width="50" height="22" rx="4" fill="#0284C7" stroke="#38BDF8" stroke-width="1" />
+    <circle cx="14" cy="11" r="7" fill="#64748B" stroke="#CBD5E1" stroke-width="1" />
+    <circle cx="14" cy="11" r="4" fill="#1E293B" />
+    <circle cx="36" cy="11" r="7" fill="#64748B" stroke="#CBD5E1" stroke-width="1" />
+    <circle cx="36" cy="11" r="4" fill="#1E293B" />
+  </g>
+
+  <!-- Ultrasonic Sensor Conical Beam -->
+  <polygon points="230,165 270,165 315,220 185,220" fill="url(#beamGrad)" />
+  <path d="M 215 185 Q 250 195 285 185" fill="none" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="2 3" opacity="0.8" />
+  <path d="M 200 205 Q 250 218 300 205" fill="none" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="2 3" opacity="0.8" />
+
+  <!-- Rising Water Level -->
+  <path d="M 0 220 Q 125 210 250 220 T 500 220 L 500 320 L 0 320 Z" fill="url(#waterGrad)" />
+  
+  <!-- Secondary translucent water wave -->
+  <path d="M 0 232 Q 130 240 260 228 T 500 234 L 500 320 L 0 320 Z" fill="#0369A1" opacity="0.5" />
+
+  <!-- Measurement & Warning Overlay Tag -->
+  <g transform="translate(340, 70)">
+    <rect x="0" y="0" width="135" height="68" rx="8" fill="#0F172A" stroke="#F59E0B" stroke-width="1.2" />
+    <circle cx="16" cy="18" r="4" fill="#F59E0B" filter="url(#glow)" />
+    <text x="28" y="22" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="700" fill="#F8FAFC">EARLY WARNING</text>
+    <text x="14" y="42" font-family="monospace" font-size="11" fill="#38BDF8">Water: 1.84m ▲</text>
+    <text x="14" y="58" font-family="monospace" font-size="9" fill="#94A3B8">Alert: Threshold Met</text>
+  </g>
+
+  <!-- Distance metric tag -->
+  <g transform="translate(35, 140)">
+    <rect x="0" y="0" width="125" height="48" rx="6" fill="#1E293B" stroke="#475569" stroke-width="1" />
+    <text x="12" y="20" font-family="-apple-system, sans-serif" font-size="9" font-weight="600" fill="#94A3B8">SENSOR TELEMETRY</text>
+    <text x="12" y="38" font-family="monospace" font-size="11" fill="#10B981">Delta: -14.2 cm/hr</text>
+  </g>
+</svg>
